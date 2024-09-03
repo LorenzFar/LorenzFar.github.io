@@ -3,264 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Justin Bieber Cool Fan Page</title>
+    <title>Lorenzo Farrell</title>
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
-        
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            font-family: 'Poppins', sans-serif;
-            background-color: #000;
-            color: #fff;
-        }
-        #container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #4a0e4e, #0e4a4a);
-            overflow: hidden;
-        }
-        #intro-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 4em;
-            font-weight: 700;
-            color: #fff;
-            text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
-            opacity: 1;
-            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-        }
-        #disc {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background-size: cover;
-            background-position: center;
-            box-shadow: 0 0 20px rgba(255,0,255,0.7);
-            display: none;
-            transition: transform 0.3s ease-in-out;
-        }
-        #disc:hover {
-            transform: scale(1.1);
-        }
-        .particle {
-            position: absolute;
-            background-color: rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-        #song-title {
-            position: absolute;
-            bottom: 60px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 1.5em;
-            text-align: center;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-        #click-me {
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 1.2em;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-        #sound-wave {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 300px;
-            height: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-        .sound-bar {
-            width: 4px;
-            background-color: #ff00ff;
-            height: 100%;
-            animation: sound-wave-animation 0.5s infinite ease-in-out alternate;
-        }
-        @keyframes sound-wave-animation {
-            0% {
-                height: 10%;
-            }
-            100% {
-                height: 100%;
-            }
+        .box{
+            border: 1px solid black
         }
     </style>
-</head>
+    
 <body>
-    <div id="container">
-        <div id="intro-text">Justin Bieber Fan Page</div>
-        <div id="disc"></div>
-        <div id="song-title"></div>
-        <div id="click-me">Click the disc!</div>
-        <div id="sound-wave"></div>
+    <h1>
+        Hi I am Farrell
+    </h1>
+    
+    <img src="IMG_0066.JPG">
+    <iframe 
+        width="560" 
+        height="315" 
+        src="https://www.youtube.com/embed/dMGSrS_2R6I?autoplay=1&mute=1" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+    </iframe>
+
+    <div name="box">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis au
     </div>
 
-    <script>
-        const introText = document.getElementById('intro-text');
-        const disc = document.getElementById('disc');
-        const container = document.getElementById('container');
-        const songTitle = document.getElementById('song-title');
-        const clickMe = document.getElementById('click-me');
-        const soundWave = document.getElementById('sound-wave');
-
-        // Array of Justin Bieber image URLs (replace with actual URLs)
-        const images = [
-            'justin1.jpg',
-            'justin2_720.png',
-            'justin3_720.jpg',
-            'justin4_720.jpg',
-            'justin5_720.jpg',
-            'justin6_720.jpg'
-        ];
-
-        // Array of Justin Bieber song titles
-        const songs = [
-            "Baby",
-            "Sorry",
-            "Love Yourself",
-            "Yummy",
-            "Peaches",
-            "Stay",
-            "Ghost",
-            "Intentions",
-            "Holy",
-            "Lonely"
-        ];
-
-        let currentImageIndex = 0;
-        let x = Math.random() * (container.clientWidth - 200);
-        let y = Math.random() * (container.clientHeight - 200);
-        let dx = (Math.random() - 0.5) * 15;
-        let dy = (Math.random() - 0.5) * 15;
-
-        function createSoundWave() {
-            soundWave.innerHTML = '';
-            for (let i = 0; i < 30; i++) {
-                const bar = document.createElement('div');
-                bar.classList.add('sound-bar');
-                bar.style.animationDelay = `${i * 0.05}s`;
-                soundWave.appendChild(bar);
-            }
-        }
-
-        function changeImage() {
-            currentImageIndex = (currentImageIndex + 1) % images.length;
-            disc.style.backgroundImage = `url('${images[currentImageIndex]}')`;
-            songTitle.textContent = songs[Math.floor(Math.random() * songs.length)];
-            songTitle.style.opacity = '1';
-            soundWave.style.opacity = '1';
-            setTimeout(() => {
-                songTitle.style.opacity = '0';
-                soundWave.style.opacity = '0';
-            }, 4000);
-        }
-
-        function moveDisc() {
-            x += dx;
-            y += dy;
-
-            if (x + 200 > container.clientWidth || x < 0) {
-                dx = -dx;
-                dx += (Math.random() - 0.5) * 2;
-                createParticles(x, y);
-            }
-            if (y + 200 > container.clientHeight || y < 0) {
-                dy = -dy;
-                dy += (Math.random() - 0.5) * 2;
-                createParticles(x, y);
-            }
-
-            const maxSpeed = 10;
-            dx = Math.max(Math.min(dx, maxSpeed), -maxSpeed);
-            dy = Math.max(Math.min(dy, maxSpeed), -maxSpeed);
-
-            disc.style.left = x + 'px';
-            disc.style.top = y + 'px';
-
-            requestAnimationFrame(moveDisc);
-        }
-
-        function createParticles(x, y) {
-            for (let i = 0; i < 10; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                particle.style.left = (x + 100) + 'px';
-                particle.style.top = (y + 100) + 'px';
-                particle.style.width = Math.random() * 10 + 5 + 'px';
-                particle.style.height = particle.style.width;
-                
-                const hue = Math.random() * 60 + 300; // Purple to pink hues
-                particle.style.backgroundColor = `hsl(${hue}, 100%, 50%)`;
-                
-                container.appendChild(particle);
-
-                const angle = Math.random() * Math.PI * 2;
-                const speed = Math.random() * 5 + 2;
-                const vx = Math.cos(angle) * speed;
-                const vy = Math.sin(angle) * speed;
-
-                let opacity = 1;
-                const animate = () => {
-                    const currentLeft = parseFloat(particle.style.left);
-                    const currentTop = parseFloat(particle.style.top);
-                    particle.style.left = (currentLeft + vx) + 'px';
-                    particle.style.top = (currentTop + vy) + 'px';
-                    opacity -= 0.02;
-                    particle.style.opacity = opacity;
-
-                    if (opacity > 0) {
-                        requestAnimationFrame(animate);
-                    } else {
-                        container.removeChild(particle);
-                    }
-                };
-                requestAnimationFrame(animate);
-            }
-        }
-
-        disc.addEventListener('click', () => {
-            changeImage();
-            createParticles(x, y);
-        });
-
-        // Start the sequence
-        setTimeout(() => {
-            introText.style.opacity = '0';
-            introText.style.transform = 'translate(-50%, -50%) scale(0.5)';
-            setTimeout(() => {
-                introText.style.display = 'none';
-                disc.style.display = 'block';
-                clickMe.style.opacity = '1';
-                createSoundWave();
-                changeImage();
-                moveDisc();
-                setInterval(changeImage, 5000);
-            }, 1000);
-        }, 2000);
-
-        // Resize event listener
-        window.addEventListener('resize', () => {
-            x = Math.min(x, container.clientWidth - 200);
-            y = Math.min(y, container.clientHeight - 200);
-        });
-    </script>
 </body>
 </html>
